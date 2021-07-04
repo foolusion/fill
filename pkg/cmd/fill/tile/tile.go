@@ -10,8 +10,8 @@ import (
 	"image/png"
 	"os"
 
-	"go.aponeill.com/fill/pkg/fill"
 	"github.com/spf13/cobra"
+	"go.aponeill.com/fill/pkg/fill"
 )
 
 type flagpole struct {
@@ -32,7 +32,7 @@ func NewCommand() *cobra.Command {
 			return runE(flags)
 		},
 	}
-	cmd.Flags().StringVar(&flags.file, "file", "example.png", "The file to fill.")
+	cmd.Flags().StringVar(&flags.file, "file", "", "The file to fill.")
 	cmd.Flags().StringVar(&flags.outFile, "out", "", "optional output file")
 	cmd.Flags().IntSliceVar(&flags.color, "color", []int{255, 0, 0, 255}, "The color to fill with. Alpha is optional")
 	cmd.Flags().IntSliceVar(&flags.position, "position", []int{0, 0}, "position to fill the image from.")
@@ -45,7 +45,7 @@ func runE(flags *flagpole) error {
 	if len(flags.color) < 3 || len(flags.color) > 4 {
 		return fmt.Errorf("not enough values for color")
 	}
-	toColor := color.RGBA{}
+	toColor := color.RGBA{A: 255}
 	for i, v := range flags.color {
 		if v < 0 || v > 255 {
 			return fmt.Errorf("%s must be between 0 and 255", colorNames[i])

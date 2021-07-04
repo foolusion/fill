@@ -41,7 +41,7 @@ func runE(flags *flagpole) error {
 	if len(flags.color) < 3 || len(flags.color) > 4 {
 		return fmt.Errorf("not enough values for color")
 	}
-	toColor := color.RGBA{}
+	toColor := color.RGBA{A: 255}
 	for i, v := range flags.color {
 		if v < 0 || v > 255 {
 			return fmt.Errorf("%s must be between 0 and 255", colorNames[i])
