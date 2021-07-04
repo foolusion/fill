@@ -1,14 +1,17 @@
 package fill
 
 import (
+	"embed"
+
 	"github.com/spf13/cobra"
+	"go.aponeill.com/fill/pkg/cmd/fill/create"
 	"go.aponeill.com/fill/pkg/cmd/fill/merge"
 	"go.aponeill.com/fill/pkg/cmd/fill/split"
 	"go.aponeill.com/fill/pkg/cmd/fill/tile"
 	"go.aponeill.com/fill/pkg/cmd/fill/world"
 )
 
-func NewCommand() *cobra.Command {
+func NewCommand(fs embed.FS) *cobra.Command {
 	cmd := &cobra.Command{
 		Args:  cobra.NoArgs,
 		Use:   "fill",
@@ -18,5 +21,6 @@ func NewCommand() *cobra.Command {
 	cmd.AddCommand(world.NewCommand())
 	cmd.AddCommand(split.NewCommand())
 	cmd.AddCommand(merge.NewCommand())
+	cmd.AddCommand(create.NewCommand(fs))
 	return cmd
 }
