@@ -10,7 +10,7 @@ import (
 	"image/png"
 	"os"
 
-	"aponeill.com/fill/pkg/fill"
+	"go.aponeill.com/fill/pkg/fill"
 	"github.com/spf13/cobra"
 )
 

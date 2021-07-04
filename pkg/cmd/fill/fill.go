@@ -1,11 +1,11 @@
 package fill
 
 import (
-	"aponeill.com/fill/pkg/cmd/fill/merge"
-	"aponeill.com/fill/pkg/cmd/fill/split"
-	"aponeill.com/fill/pkg/cmd/fill/tile"
-	"aponeill.com/fill/pkg/cmd/fill/world"
 	"github.com/spf13/cobra"
+	"go.aponeill.com/fill/pkg/cmd/fill/merge"
+	"go.aponeill.com/fill/pkg/cmd/fill/split"
+	"go.aponeill.com/fill/pkg/cmd/fill/tile"
+	"go.aponeill.com/fill/pkg/cmd/fill/world"
 )
 
 func NewCommand() *cobra.Command {

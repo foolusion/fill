@@ -1,4 +1,4 @@
-module aponeill.com/fill
+module go.aponeill.com/fill
 
 go 1.16
 

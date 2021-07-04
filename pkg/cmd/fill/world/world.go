@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"image/color"
 
-	"aponeill.com/fill/pkg/fill"
 	"github.com/spf13/cobra"
+	"go.aponeill.com/fill/pkg/fill"
 )
 
 type flagpole struct {

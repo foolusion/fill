@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"aponeill.com/fill/pkg/cmd/fill"
+	"go.aponeill.com/fill/pkg/cmd/fill"
 )
 
 func main() {
