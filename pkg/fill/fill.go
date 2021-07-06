@@ -115,7 +115,7 @@ func WorkManager(workCh chan<- Work, resultsCh <-chan Border, initial Work, path
 		}
 		if i < len(todo) {
 			temp := todo[:i]
-			todo = todo[i+1:]
+			todo = todo[i:]
 			todo = append(todo, temp...)
 			doWorkCh = workCh
 		} else {
@@ -124,11 +124,9 @@ func WorkManager(workCh chan<- Work, resultsCh <-chan Border, initial Work, path
 		select {
 		case doWorkCh <- w:
 			processing[w.filePosition] = true
+			todo = todo[1:]
 			delete(workSet, w.filePosition)
 		case b := <-resultsCh:
-			if i < len(todo) {
-				todo = append(todo, w.filePosition)
-			}
 			if len(b.left) > 0 {
 				lp := Position{X: b.filePosition.X - 1, Y: b.filePosition.Y}
 				if ww, ok := workSet[lp]; ok {
